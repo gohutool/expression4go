@@ -3,7 +3,6 @@ a expression launage toolkit for golang like as expression4j
 
 ![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
-~~~~
 
 # Introduce
 This project is come from an unmaintained fork, the branch can see https://github.com/heartlhj/go-expression
