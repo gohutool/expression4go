@@ -2,7 +2,7 @@ package standard
 
 import (
 	"fmt"
-	"github.com/gohutool/expression4go"
+	"github.com/gohutool/expression4go/utils"
 	"strings"
 )
 
@@ -327,7 +327,7 @@ func (t *Tokenizer) lexIdentifier() {
 	alternativeOperatorNames := []string{"DIV", "EQ", "GE", "GT", "LE", "LT", "MOD", "NE", "NOT"}
 	if (t.pos-start) == 2 || (t.pos-start) == 3 {
 		asString := strings.ToUpper(string(runes))
-		idx := expression4go.BinarySearch(alternativeOperatorNames, asString)
+		idx := utils.BinarySearch(alternativeOperatorNames, asString)
 		if idx >= 0 {
 			//t.pushOneCharOrTwoCharToken(TokenKind.valueOf(asString), start, runes)
 			return

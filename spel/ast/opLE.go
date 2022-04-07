@@ -1,7 +1,5 @@
 package ast
 
-import "github.com/gohutool/expression4go/support"
-
 /**
 * golang-sample源代码，版权归锦翰科技（深圳）有限公司所有。
 * <p>
@@ -24,7 +22,7 @@ type OpLE struct {
 }
 
 func (o *OpLE) GetValueInternal(expressionState ExpressionState) TypedValue {
-	value := support.BooleanTypedValue{}
+	value := BooleanTypedValue{}
 	left := o.getLeftOperand().GetValueInternal(expressionState).Value
 	right := o.getRightOperand().GetValueInternal(expressionState).Value
 	checkType := checkType(left, right)

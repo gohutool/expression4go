@@ -3,6 +3,7 @@ package expression4go
 import (
 	"container/list"
 	"fmt"
+	"github.com/gohutool/expression4go/utils"
 	"strings"
 )
 
@@ -100,7 +101,7 @@ func skipToCorrectEndSuffix(suffix string, expressionString string, afterPrefixI
 			case "'":
 			case "\\":
 				{
-					endLiteral := IndexOf(expressionString, ch, pos+1)
+					endLiteral := utils.IndexOf(expressionString, ch, pos+1)
 					if endLiteral == -1 {
 						//err
 					}

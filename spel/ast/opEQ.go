@@ -1,7 +1,5 @@
 package ast
 
-import "github.com/gohutool/expression4go/support"
-
 /**
 * golang-sample源代码，版权归锦翰科技（深圳）有限公司所有。
 * <p>
@@ -28,6 +26,6 @@ func (o *OpEQ) GetValueInternal(expressionState ExpressionState) TypedValue {
 	o.leftActualDescriptor = o.toDescriptorFromObject(left)
 	o.rightActualDescriptor = o.toDescriptorFromObject(right)
 	check := o.equalityCheck(left, right)
-	value := support.BooleanTypedValue{}
+	value := BooleanTypedValue{}
 	return value.ForValue(check)
 }

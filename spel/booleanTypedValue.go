@@ -1,6 +1,4 @@
-package support
-
-import "github.com/gohutool/expression4go/spel"
+package spel
 
 /**
 * golang-sample源代码，版权归锦翰科技（深圳）有限公司所有。
@@ -15,11 +13,11 @@ import "github.com/gohutool/expression4go/spel"
 */
 
 type BooleanTypedValue struct {
-	*spel.TypedValue
+	*TypedValue
 }
 
-func (b *BooleanTypedValue) ForValue(bool2 bool) spel.TypedValue {
-	boo := spel.TypedValue{}
+func (b *BooleanTypedValue) ForValue(bool2 bool) TypedValue {
+	boo := TypedValue{}
 	if bool2 {
 		boo.Value = true
 		return boo

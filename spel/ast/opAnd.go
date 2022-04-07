@@ -14,7 +14,6 @@ package ast
 
 import (
 	. "github.com/gohutool/expression4go/spel"
-	. "github.com/gohutool/expression4go/support"
 )
 
 //与操作 eg:  "#name=='lisi' && #age>=18"

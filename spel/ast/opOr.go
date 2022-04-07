@@ -14,7 +14,6 @@ package ast
 
 import (
 	. "github.com/gohutool/expression4go/spel"
-	. "github.com/gohutool/expression4go/support"
 )
 
 type OpOr struct {
