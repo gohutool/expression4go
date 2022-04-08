@@ -241,7 +241,9 @@ func (i *InternalSpelExpressionParser) maybeEatLiteral() bool {
 			i.push(literal)
 		}
 	} else if kindType == LITERAL_INT {
-		value, err := strconv.ParseInt(t.Data, 10, 64)
+		//value, err := strconv.ParseInt(t.Data, 10, 64)
+		// fix bug like ${data.list[0]} will be 0]
+		value, err := strconv.ParseInt(strings.ReplaceAll(t.Data, "]", ""), 10, 64)
 		if err == nil {
 			// 将 int64 转化为 int
 			value := *(*int)(unsafe.Pointer(&value))
@@ -466,7 +468,8 @@ func (i *InternalSpelExpressionParser) eatLogicalAndExpression() (SpelNode, erro
 func (i *InternalSpelExpressionParser) eatToken(expectedKind TokenKindType) Token {
 	token, err := i.nextToken()
 	if err != nil {
-		panic("Unexpectedly ran out of input")
+		return Token{}
+		//panic("Unexpectedly ran out of input")
 	}
 	if token.Kind.TokenKindType != expectedKind {
 		panic("Unexpected token.")

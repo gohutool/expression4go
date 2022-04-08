@@ -67,6 +67,15 @@ func TestStruct(t *testing.T) {
 	fmt.Println("结果为", valueContext)
 }
 
+func TestCompound2(t *testing.T) {
+	context.AddPropertyAccessor(MapAccessor{})
+	m["name"] = "expression4go"
+	context.SetVariables(m)
+	expressionString := "${name}"
+	valueContext := parser.ParseExpression(expressionString).GetValueContext(&context)
+	fmt.Println("结果为", valueContext)
+}
+
 func TestCompound(t *testing.T) {
 	context.AddPropertyAccessor(MapAccessor{})
 	m["name"] = "expression4go"
@@ -97,6 +106,31 @@ func TestIndex(t *testing.T) {
 	m["order"] = m1
 	context.SetVariables(m)
 	expressionString := "${order.code[0].name}"
+	valueContext := parser.ParseExpression(expressionString).GetValueContext(&context)
+	fmt.Println("结果为", valueContext)
+}
+
+func TestSlice(t *testing.T) {
+	var arr []any
+	arr = append(arr, "liuyong")
+	fmt.Println(arr...)
+}
+
+func TestIndex2(t *testing.T) {
+	context.AddPropertyAccessor(MapAccessor{})
+	m1 := make(map[string]interface{})
+	m["name"] = "expression4go"
+	m["age"] = 1
+	//切片
+	//orders := make([]Order, 2)
+	//数组
+	orders := [2]int{}
+	orders[0] = 1
+	orders[1] = 2
+	m1["code"] = orders
+	m["order"] = m1
+	context.SetVariables(m)
+	expressionString := "${order.code[0]}"
 	valueContext := parser.ParseExpression(expressionString).GetValueContext(&context)
 	fmt.Println("结果为", valueContext)
 }
