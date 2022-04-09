@@ -13,10 +13,10 @@ package expression4go
 */
 
 const (
-	L4G_VERSION = "expression4go-v1.0.0"
-	L4G_MAJOR   = 1
-	L4G_MINOR   = 0
-	L4G_BUILD   = 0
+	EXPRESSION4G_VERSION = "expression4go-v1.0.0"
+	EXPRESSION4G_MAJOR   = 1
+	EXPRESSION4G_MINOR   = 0
+	EXPRESSION4G_BUILD   = 0
 )
 
 type SpelExpressionParser struct {
